@@ -15,7 +15,8 @@ class Video extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-     $this->addMediaCollection('media')
-     ->singleFile();   
+
+     $this->addMediaCollection('video')->singleFile();   
+     
     }
 }

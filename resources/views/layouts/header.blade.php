@@ -29,7 +29,7 @@
                     <a class="nav-link active" aria-current="page" href="#">لیست ویدیوها</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#">آپلود ویدیو</a>
+                    <a class="nav-link " href="{{route('upload_video')}}">آپلود ویدیو</a>
                   </li>
                   
                 </ul>

@@ -35,10 +35,11 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
-        'media' => [
-            'driver' => 'local',
-            'root'   => public_path('media'),
-            'url'    => env('APP_URL').'/media',
+        'medias' => [
+            'driver' => "local",
+            'root'   => storage_path('app/public/videos'),
+            'url'    => '/storage/videos',
+            'visibility' =>'public',
         ],
         'public' => [
             'driver' => 'local',
