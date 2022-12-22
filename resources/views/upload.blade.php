@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="container d-flex align-items-center justify-content-center">
-<form class="contaiex-column ml-2 mr-2  rounded" action="{{route('upload_store')}}" method="POST" enctype="multipart/form-ner-fluid d-flex align-items-center justify-content-center fldata">
+<form  id="fileUploadForm" class="container d-flex flex-column  align-items-center justify-content-center rounded" action="{{route('upload_store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
 
@@ -25,7 +25,7 @@
       </div>
 
       <div class="mb-1 w-50">
-        <button class="form-control shadow btn btn-success" type="submit">تایید</button>
+        <button class="form-control shadow btn btn-success" >تایید</button>
       </div>
 
 </form>

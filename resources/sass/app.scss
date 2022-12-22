@@ -16,3 +16,16 @@
   body {
     font-family: "Vazir", Arial, Helvetica, sans-serif;
   }
+  .vv{
+    width: 100%;
+    height: 250px !important;
+    position:relative;
+  }
+  .vv::before{
+    width:100%;
+    height:250px !important;
+    content: '';
+    position:absolute;
+    top:0;
+    left:0;
+  }

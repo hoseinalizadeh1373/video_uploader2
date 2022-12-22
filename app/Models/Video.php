@@ -17,6 +17,11 @@ class Video extends Model implements HasMedia
     {
 
      $this->addMediaCollection('video')->singleFile();   
+
+     $this->addMediaCollection('cover')->singleFile();
      
+    }
+    public function getUrlAttribute(){
+        return $this->getFirstMediaUrl("video");
     }
 }
