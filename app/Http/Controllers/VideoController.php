@@ -10,7 +10,8 @@ class VideoController extends Controller
 
     public function list()
     {
-        $videos = Video::latest()->paginate(3);
+        
+        $videos = Video::latest()->paginate(6);
         return view('list_video', compact('videos'));
     }
 
@@ -22,31 +23,18 @@ class VideoController extends Controller
 
     public function store(Request $request, Video $video)
     {
-        // $validator = $request->validate([
-        //     'title' =>'required',
-        //     'desc' => ' required',
-        //     'video'=>'required'
-        // ]);
-        // $request->validate([
-        //     'title' => 'required',
-        //     'video' => 'required|file|mimetypes:video/mp4'
-        // ]);
+        
         $this->validate($request,[
-            'title' => 'required',
-            'file' => 'required|file|mimetypes:video/mp4'
+            'title' => 'required|max:30',
+            'desc' =>'max:120|required',
+            'file' => 'required|file|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime'
         ]);
 
-        // phpinfo();
-        // exit;
-
-        //   dd($request->file());
-
-        //     $this->validate($request,[
-        //         "file"=>"required"
-        //     ]);
+        
         $video = Video::Create($request->all());
         $video->addMediaFromRequest("file")->toMediaCollection("video");
 
+        // return response()->json(['success'=>'You have successfully upload file.']);
 
 
         return redirect()->route('list_video');

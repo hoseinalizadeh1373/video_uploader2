@@ -5,9 +5,8 @@
         @forelse($videos as $video)
         <div class="col-lg-4 col-sm-6 col-xs-12 mt-2 rounded ">
             <div class="card w-100" >
-                {{-- <img src="..."  alt="..."> --}}
-                <div  class="card-img-top vv">
 
+                <div  class="card-img-top vv">
                 <video  width="100%" height="100%"  >
                     <source src="{{$video->getFirstMediaUrl('video')}}" type="video/mp4">
                   مرورگر شما پشتیبانی نمی کند!
@@ -19,20 +18,13 @@
                 </div>
               </div>
         </div>
-
-        
         @empty
         <div class="d-flex justify-content-center align-items-center">
             <td >هیچ ویدیویی جهت مشاهده وجود ندارد</td>
         </div>
-
-
     @endforelse
-
     </div>
-  
-    {{ $videos->links() }}
-    {{-- {!! $videos->withQueryString()->links('pagination::bootstrap-5') !!} --}}
 </div>
+<ul class="d-flex justify-content-center  mt-4">{{ $videos -> links("pagination::bootstrap-5")}}</ul>
      @include('layouts.show_video')
 @endsection
