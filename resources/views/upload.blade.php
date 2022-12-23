@@ -4,7 +4,9 @@
 <form  id="fileUploadForm" class="container d-flex flex-column  align-items-center justify-content-center rounded" action="{{route('upload_store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
-
+    <div class="alert alert-danger print-error-msg" style="display:none">
+                <ul></ul>
+            </div>
     <div class="mb-1 w-50">
         <label for="title" class="form-label">عنوان ویدیو</label>
         <input type="text" class="form-control shadow" id="title" name="title" value="{{old('title')}}">
@@ -28,7 +30,7 @@
       <div class="mb-1 w-50">
         <label for="formFile" class="form-label">انتخاب ویدیو</label>
         
-        <input id="file_id" class="form-control shadow" type="file" name="file">
+        <input id="file_id" class="form-control shadow" type="file" name="file" accept="video/*">
         @error('file')
                             <p class="invalid-feedback d-block">
                                 <strong>{{$message}}</strong>
@@ -41,7 +43,7 @@
       </div>
 
       <div class="mb-1 w-50">
-        <button class="form-control shadow btn btn-success" >تایید</button>
+        <button class="form-control shadow btn btn-success btn_submit" >تایید</button>
       </div>
 
 </form>
