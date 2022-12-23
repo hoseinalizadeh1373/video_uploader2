@@ -28,35 +28,12 @@ class VideoController extends Controller
          $this->validate($request,[
             'title' => 'required|max:30',
             'desc' =>'max:120|required',
-            'file' => 'required|file|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime'
+            'file' => 'required|file|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:200000'
         ]);
-        
-
-        // $validator = Validator::make($request->all(),[
-        //     'title' => 'required|max:30',
-        //     'desc' =>'max:120|required',
-        // //    'file'=>'required|mimes:mp4', 
-        // ]);
-
-        $filee ="";
-        if($request->file('file')){
-$filee ="yes";
-        }
-        
-        // if($validator->fails()){
-        //     return response()->json([
-        //         'error'=>$validator->errors()->all(),
-        //         'req' =>$request->all(),
-        //         'filee' =>$filee
-        //     ]);
-        // }
         
 
         $video = Video::Create($request->all());
         $video->addMediaFromRequest("file")->toMediaCollection("video");
-
-//         return response()->json(['success'=>'You have successfully upload file.']);
-
 
         return redirect()->route('list_video');
     }

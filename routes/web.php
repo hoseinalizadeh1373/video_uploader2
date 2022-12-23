@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/',[VideoController::class,'list'])->name('list_video');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/upload',[VideoController::class,'upload'])->name('upload_video');
  Route::post('/upload/store',[VideoController::class,'store'])->name('upload_store');
 
